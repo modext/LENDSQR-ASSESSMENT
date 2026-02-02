@@ -1,0 +1,31 @@
+@use "../../styles/variables" as *;
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.active {
+  background: rgba(57, 205, 98, 0.06);
+  color: #39CD62;
+  border-radius: 100px;
+}
+.pending {
+  background: rgba(233, 178, 0, 0.1);
+  color: #E9B200;
+  border-radius: 100px;
+}
+.inactive {
+  background: rgba(84, 95, 125, 0.06);
+  color: #545F7D;
+  border-radius: 100px;
+}
+.blacklisted {
+  background: rgba(228, 3, 59, 0.1);
+  color: #E4033B;
+  border-radius: 100px;
+}

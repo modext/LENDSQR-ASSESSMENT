@@ -1,0 +1,48 @@
+@use "../../styles/variables" as *;
+
+/* Popup / dropdown menu - design: 180×130, absolute.
+   right: -60px and .wrap overflow: visible must stay so menu is not clipped. */
+.menu {
+  position: absolute;
+  right: -60px;
+  top: 44px;
+  width: 180px;
+  height: 130px;
+  background: #FFFFFF;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  border-radius: 4px;
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  padding: 8px;
+  z-index: 40;
+  box-sizing: border-box;
+}
+
+.menuItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 10px 10px;
+  cursor: pointer;
+  color: #545F7D;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.menuItem:hover {
+  background: rgba(57, 205, 204, 0.06);
+  color: $navy;
+}
+
+.menuIcon {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  flex-shrink: 0;
+  object-fit: contain;
+  color: inherit;
+}

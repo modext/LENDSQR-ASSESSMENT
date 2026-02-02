@@ -1,0 +1,78 @@
+@use "../../styles/variables" as *;
+
+.card {
+  width: 100%;
+  min-height: 160px;
+  background: #FFFFFF;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: $breakpoint-md) {
+  .card {
+    padding: 24px;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .card {
+    max-width: 230px;
+    height: 160px;
+    min-height: 160px;
+    padding: 30px;
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(57, 205, 204, 0.1);
+  margin-bottom: 7px;
+}
+
+.icon :global(img),
+.icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.title {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #545F7D;
+  padding-top: 7px;
+  padding-bottom: 6px;
+}
+
+.value {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #213F7D;
+  padding-top: 6px;
+}
+
+@media (min-width: $breakpoint-md) {
+  .title {
+    font-size: 14px;
+  }
+  .value {
+    font-size: 24px;
+  }
+}
