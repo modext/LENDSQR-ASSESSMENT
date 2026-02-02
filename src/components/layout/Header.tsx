@@ -49,7 +49,7 @@ export function Header({ onMenuClick, isMenuOpen }: HeaderProps) {
         <a href="/docs" className={styles.docsLink}>
           Docs
         </a>
-          <img src={bellIconImg} alt="" width={26} height={26} aria-hidden />
+          <img src={bellIconImg} alt="" className={styles.bellIcon} width={26} height={26} aria-hidden />
          
         <div className={styles.userMenu}>
           <img src={avatarImg} alt="" className={styles.avatar} width={48} height={48} />

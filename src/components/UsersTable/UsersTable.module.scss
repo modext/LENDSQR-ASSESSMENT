@@ -16,12 +16,26 @@
   @media (max-width: $breakpoint-lg) {
     padding: 16px;
     min-height: 400px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
   @media (max-width: $breakpoint-md) {
     padding: 12px;
+  }
+}
+
+.tableScroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* Only disable scroll when viewport is wide enough to fit the table (e.g. 1280px+) */
+  @media (min-width: $breakpoint-xl) {
+    overflow-x: visible;
+  }
+
+  /* Mobile only: no horizontal scroll, table becomes cards */
+  @media (max-width: $breakpoint-sm) {
+    overflow-x: visible;
   }
 }
 
@@ -33,12 +47,14 @@
   width: 100%;
   border-collapse: collapse;
 
-  @media (max-width: $breakpoint-lg) {
+  /* Tablet + small desktop: horizontal scroll until viewport fits table; mobile uses cards */
+  @media (max-width: $breakpoint-xl - 1) and (min-width: $breakpoint-sm + 1) {
     min-width: 900px;
   }
 }
 
-@media (min-width: 1024px) {
+/* Fixed table layout only when viewport is wide enough (1280px+) so content isn't clipped */
+@media (min-width: $breakpoint-xl) {
   .table {
     table-layout: fixed;
     width: 100%;
@@ -184,4 +200,75 @@ tbody tr:first-child td {
 
 .menuAnchor {
   position: relative;
+}
+
+/* Mobile only: table becomes cards (no horizontal scroll) */
+@media (max-width: $breakpoint-sm) {
+  .table {
+    min-width: 0;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody .row {
+    display: block;
+    position: relative;
+    border: 1px solid $border;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 12px 12px 12px 16px;
+    padding-right: 48px; /* space for kebab */
+    background: $bg-card;
+  }
+
+  .table tbody .row:last-child {
+    margin-bottom: 0;
+  }
+
+  .table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-top: 1px solid rgba(33, 63, 125, 0.06);
+    font-size: 14px;
+  }
+
+  .table tbody td:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: $text-muted;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+
+  .table tbody td[data-label=""]::before {
+    content: none;
+  }
+
+  .table tbody .menuCell {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: auto;
+    padding: 0;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .table tbody .menuCell::before {
+    content: none;
+  }
 }

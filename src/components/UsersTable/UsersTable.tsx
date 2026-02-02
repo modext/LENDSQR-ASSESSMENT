@@ -19,6 +19,7 @@ export function UsersTable({
 
   return (
     <div className={styles.wrap}>
+      <div className={styles.tableScroll}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -46,15 +47,15 @@ export function UsersTable({
 
         <tbody>
           {users.map((u) => (
-            <tr key={u.id}>
-              <td>{u.organization}</td>
-              <td>{u.username}</td>
-              <td>{u.email}</td>
-              <td>{u.phone}</td>
-              <td>{formatDateJoined(u.dateJoined)}</td>
-              <td><StatusPill status={u.status} /></td>
-              <td className={styles.menuCell}>
-                <button type="button" className={styles.kebab} onClick={() => setOpenMenuId(openMenuId === u.id ? null : u.id)}>
+            <tr key={u.id} className={styles.row}>
+              <td data-label="Organization">{u.organization}</td>
+              <td data-label="Username">{u.username}</td>
+              <td data-label="Email">{u.email}</td>
+              <td data-label="Phone number">{u.phone}</td>
+              <td data-label="Date joined">{formatDateJoined(u.dateJoined)}</td>
+              <td data-label="Status"><StatusPill status={u.status} /></td>
+              <td className={styles.menuCell} data-label="">
+                <button type="button" className={styles.kebab} onClick={() => setOpenMenuId(openMenuId === u.id ? null : u.id)} aria-label="Actions">
                   ⋮
                 </button>
 
@@ -72,6 +73,7 @@ export function UsersTable({
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
