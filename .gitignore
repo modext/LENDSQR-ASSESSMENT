@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Markdown: only README.md is in the repo; others stay local
+*.md
+!README.md
