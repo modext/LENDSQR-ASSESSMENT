@@ -1,12 +1,3 @@
-/**
- * Generates 500 mock users for mocky.io or json-generator.com.
- * Run: node scripts/generate-mock-users.js
- * Output: public/mock-users.json (and prints path for mocky.io)
- *
- * Use the JSON at https://www.mocky.io/ (Create Mock) or
- * https://json-generator.com/ to host the response.
- */
-
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -97,7 +88,6 @@ for (let i = 0; i < COUNT; i++) {
   users.push(generateUser(i));
 }
 
-// Response shape expected by the app: { data: User[], total: number }
 const payload = { data: users, total: users.length };
 
 const outDir = path.join(__dirname, "..", "public");

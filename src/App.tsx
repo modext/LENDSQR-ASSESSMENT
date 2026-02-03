@@ -1,7 +1,3 @@
-/**
- * Alternative app entry using React Router via BrowserRouter.
- * The app currently runs via main.tsx using RouterProvider + router (app/router.tsx).
- */
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from '@/context/AuthContext';
 import { ProtectedRoute } from '@/components/ProtectedRoute';

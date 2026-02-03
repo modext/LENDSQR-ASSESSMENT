@@ -1,8 +1,3 @@
-/**
- * Mock user list data - 500 records for assessment.
- * In production, replace with mocky.io or similar; structure matches this schema.
- */
-
 import type { UserListItem, UserDetails, Guarantor } from '@/types/user';
 
 const organizations = ['Lendsqr', 'Irorun', 'Lendstar', 'Creditwave', 'Cashflow'];

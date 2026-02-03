@@ -1,12 +1,6 @@
-/**
- * API service for users and user details.
- * Uses local mock data; can be switched to mocky.io by changing base URL.
- */
-
 import type { UsersApiResponse, UserDetailsApiResponse } from '@/types/user';
 import { getMockUserList, getMockUserDetailsById } from '@/data/mockUsers';
 
-// In production, set to mocky.io URL after uploading mock-users.json
 const API_BASE = '';
 
 async function fetchFromMock<T>(path: string): Promise<T> {
@@ -15,7 +9,6 @@ async function fetchFromMock<T>(path: string): Promise<T> {
     if (!res.ok) throw new Error(`API error: ${res.status}`);
     return res.json() as Promise<T>;
   }
-  // Local mock
   if (path === '/users' || path.startsWith('/users?')) {
     const list = getMockUserList();
     return { users: list, total: list.length } as T;

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { RouterProvider } from "react-router-dom";
@@ -7,23 +8,24 @@ describe("Login", () => {
   it("shows error when email is empty (negative)", async () => {
     const user = userEvent.setup();
     render(<RouterProvider router={router} />);
-    const logInBtn = await screen.findByRole("button", { name: /log in/i });
-    await user.click(logInBtn);
+    const logInBtns = await screen.findAllByRole("button", { name: /log in/i });
+    await user.click(logInBtns[0]);
     expect(await screen.findByText(/email is required/i)).toBeInTheDocument();
   });
 
   it("shows error when password is empty after filling email (negative)", async () => {
     const user = userEvent.setup();
     render(<RouterProvider router={router} />);
-    const emailInput = await screen.findByPlaceholderText(/email/i);
-    await user.type(emailInput, "test@example.com");
-    const logInBtn = screen.getByRole("button", { name: /log in/i });
-    await user.click(logInBtn);
+    const emailInputs = await screen.findAllByPlaceholderText(/email/i);
+    await user.type(emailInputs[0], "test@example.com");
+    const logInBtns = screen.getAllByRole("button", { name: /log in/i });
+    await user.click(logInBtns[0]);
     expect(await screen.findByText(/password is required/i)).toBeInTheDocument();
   });
 
   it("shows welcome heading (positive)", async () => {
     render(<RouterProvider router={router} />);
-    expect(await screen.findByRole("heading", { name: /welcome/i })).toBeInTheDocument();
+    const headings = await screen.findAllByRole("heading", { name: /welcome/i });
+    expect(headings[0]).toBeInTheDocument();
   });
 });

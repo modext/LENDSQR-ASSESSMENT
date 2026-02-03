@@ -17,7 +17,6 @@ export function formatNGN(amount: number) {
   return new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN" }).format(amount);
 }
 
-/** Convert URL slug to title case (e.g. "some-section" → "Some Section") */
 export function slugToTitle(slug: string): string {
   return slug
     .split("-")

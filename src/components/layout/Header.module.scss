@@ -107,9 +107,8 @@
   align-items: center;
   margin: 0 auto;
   @media (min-width: $breakpoint-lg) {
-    margin-left: 168.2px;
+    margin-left: 144.2px;
   }
-  /* Tablet: longer search bar to use available space */
   @media (max-width: $breakpoint-lg) and (min-width: $breakpoint-md + 1) {
     max-width: 360px;
     margin-left: 0;

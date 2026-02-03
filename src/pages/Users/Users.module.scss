@@ -22,7 +22,6 @@
   gap: 26px;
 }
 
-/* At 1024px and below use 2x2 so stat cards aren't cramped in one row */
 @media (max-width: $breakpoint-xl) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
@@ -345,7 +344,6 @@
   opacity: 0.6;
 }
 
-/* Page number: no box, plain text */
 .pageBtn {
   min-width: auto;
   height: auto;
@@ -371,7 +369,6 @@
   cursor: not-allowed;
 }
 
-/* Active page number: just the number, no button/pill */
 .pageBtnActive {
   background: transparent;
   color: #545F7D;
@@ -381,7 +378,6 @@
   opacity: 1;
 }
 
-/* Rectangle 20: 24x24, prev/next arrow containers */
 .pageBtnArrow {
   width: 24px;
   height: 24px;

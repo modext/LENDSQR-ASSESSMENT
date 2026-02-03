@@ -25,7 +25,6 @@ function loadStoredAuth(): AuthState {
       return { isAuthenticated: true, userEmail: email };
     }
   } catch {
-    // ignore
   }
   return defaultState;
 }

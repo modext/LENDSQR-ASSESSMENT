@@ -1,7 +1,5 @@
 @use "../../styles/variables" as *;
 
-/* Popup / dropdown menu - design: 180×130, absolute.
-   right: -60px and .wrap overflow: visible must stay so menu is not clipped. */
 .menu {
   position: absolute;
   right: -60px;

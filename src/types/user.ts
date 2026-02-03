@@ -1,6 +1,5 @@
 export type UserStatus = "Active" | "Inactive" | "Pending" | "Blacklisted";
 
-/** List view status (lowercase) */
 export type UserStatusListItem = "active" | "inactive" | "pending" | "blacklisted";
 
 export type UserListItem = {
@@ -40,7 +39,7 @@ export type User = {
   username: string;
   email: string;
   phone: string;
-  dateJoined: string; // ISO string
+  dateJoined: string;
   status: UserStatus;
 
   fullName?: string;

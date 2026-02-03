@@ -1,6 +1,3 @@
-/**
- * Fallback mock users when API is unavailable. Matches User type.
- */
 import type { User, UserStatus } from "../types/user";
 
 const orgs = ["Lendsqr", "Irorun", "Lendstar", "Creditwave", "Cashflow"];

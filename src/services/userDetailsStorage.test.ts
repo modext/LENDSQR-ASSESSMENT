@@ -48,7 +48,6 @@ describe('userDetailsStorage', () => {
     try {
       await removeUserDetails(mockUser.id);
     } catch {
-      // ignore
     }
   });
 

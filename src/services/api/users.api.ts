@@ -14,7 +14,6 @@ export type UsersQuery = {
 
 const MOCKY_USERS_URL = import.meta.env.VITE_MOCKY_USERS_URL as string | undefined;
 
-/** Cached list when using mocky.io so we don't re-fetch 500 on every request */
 let mockyListCache: { data: User[]; total: number } | null = null;
 
 async function fetchMockyUsers(): Promise<{ data: User[]; total: number }> {

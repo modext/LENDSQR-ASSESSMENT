@@ -1,7 +1,3 @@
-/**
- * Stat card config shared by Dashboard and Users pages.
- * Icon paths are relative to src/assets.
- */
 export const STAT_CARD_KEYS = ["users", "active", "loans", "savings"] as const;
 export type StatCardKey = (typeof STAT_CARD_KEYS)[number];
 

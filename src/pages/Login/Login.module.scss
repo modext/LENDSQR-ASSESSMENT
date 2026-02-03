@@ -1,7 +1,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-// Avenir Next only on the welcome/login page; rest of app uses Work Sans
 $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
 .container {
@@ -109,7 +108,6 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   }
 }
 
-/* Logo shown only on mobile/tablet when left panel is hidden */
 .logoMobile {
   display: none;
 
@@ -136,7 +134,7 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
   max-width: 447px;
 
   @media (min-width: $breakpoint-lg) {
-    padding-top: 340px; /* clear space for Welcome (215–270px) + subtitle (280–308px) */
+    padding-top: 340px;
   }
 }
 
@@ -312,7 +310,7 @@ $font-login: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI
     top: 516px;
     width: 147px;
     margin: 0;
-    z-index: 1; /* above login button so it stays visible and clickable */
+    z-index: 1;
   }
 }
 

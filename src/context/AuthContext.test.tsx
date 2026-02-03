@@ -25,15 +25,20 @@ describe('AuthContext', () => {
   it('login sets authenticated', async () => {
     const user = userEvent.setup();
     render(<AuthProvider><TestConsumer /></AuthProvider>);
-    await user.click(screen.getByText('Login'));
-    expect(screen.getByTestId('auth')).toHaveTextContent('true');
+    const loginButtons = screen.getAllByRole('button', { name: 'Login' });
+    await user.click(loginButtons[0]);
+    const authSpans = screen.getAllByTestId('auth');
+    expect(authSpans[0]).toHaveTextContent('true');
   });
 
   it('logout clears state', async () => {
     const user = userEvent.setup();
     render(<AuthProvider><TestConsumer /></AuthProvider>);
-    await user.click(screen.getByText('Login'));
-    await user.click(screen.getByText('Logout'));
-    expect(screen.getByTestId('auth')).toHaveTextContent('false');
+    const loginButtons = screen.getAllByRole('button', { name: 'Login' });
+    await user.click(loginButtons[0]);
+    const logoutButtons = screen.getAllByRole('button', { name: 'Logout' });
+    await user.click(logoutButtons[0]);
+    const authSpans = screen.getAllByTestId('auth');
+    expect(authSpans[0]).toHaveTextContent('false');
   });
 });

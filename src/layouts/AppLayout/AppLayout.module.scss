@@ -11,7 +11,7 @@
 
 .headerRow {
   flex-shrink: 0;
-  height: $header-height; /* reserve space for fixed header */
+  height: $header-height;
   position: relative;
   z-index: 100;
 

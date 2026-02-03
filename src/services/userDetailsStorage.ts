@@ -1,8 +1,3 @@
-/**
- * Store and retrieve user details using IndexedDB.
- * Falls back to localStorage if IndexedDB is unavailable.
- */
-
 import type { UserDetails } from '@/types/user';
 
 const DB_NAME = 'lendsqr-user-details';
