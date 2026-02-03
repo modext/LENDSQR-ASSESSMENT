@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import avatarImg from '../../assets/avartar.png';
@@ -11,7 +12,7 @@ interface HeaderProps {
   isMenuOpen?: boolean;
 }
 
-export function Header({ onMenuClick, isMenuOpen }: HeaderProps) {
+function HeaderComponent({ onMenuClick, isMenuOpen }: HeaderProps) {
   return (
     <header className={styles.header}>
       {onMenuClick && (
@@ -22,7 +23,7 @@ export function Header({ onMenuClick, isMenuOpen }: HeaderProps) {
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
             <path d="M3 12h18M3 6h18M3 18h18" />
           </svg>
         </button>
@@ -60,3 +61,5 @@ export function Header({ onMenuClick, isMenuOpen }: HeaderProps) {
     </header>
   );
 }
+
+export const Header = memo(HeaderComponent);

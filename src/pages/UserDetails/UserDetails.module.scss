@@ -7,6 +7,7 @@ $color-muted: #545F7D;
 
 .wrap {
   max-width: 1100px;
+  font-family: $font-users;
 }
 
 .back {
@@ -68,25 +69,30 @@ $color-muted: #545F7D;
   color: #39CDCC;
 }
 
-/* Same border qualities as Users page (stat cards / table) */
-.summary {
+/* Single card: summary + tabs, no horizontal line between */
+.summaryCard {
   margin-top: 22px;
-  height: 210px;
   background: #FFFFFF;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 4px 4px 0 0;
-  padding: 30px 24px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.summary {
+  height: 210px;
+  box-sizing: border-box;
+  padding: 30px 30px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 30px;
 }
 
 .profile {
   display: flex;
   align-items: center;
   gap: 14px;
-  min-width: 280px;
+  min-width: 200px;
 }
 
 .avatar {
@@ -99,7 +105,7 @@ $color-muted: #545F7D;
 
 .name {
   font-family: $font-users;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 22px;
   line-height: 100%;
   color: $color-primary;
@@ -109,7 +115,7 @@ $color-muted: #545F7D;
   font-weight: 400;
   font-size: 12px;
   color: $color-muted;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .divider {
@@ -120,15 +126,15 @@ $color-muted: #545F7D;
 
 .label {
   font-family: $font-users;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 14px;
   color: $color-muted;
 }
 .stars {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .stars img {
@@ -150,18 +156,12 @@ $color-muted: #545F7D;
   font-weight: 400;
   font-size: 12px;
   color: $color-muted;
-  margin-top: 6px;
+  margin-top: 12px;
 }
 
 .tabs {
-  background: #FFFFFF;
-  margin-top: -12px;
-  border: 1px solid rgba(33, 63, 125, 0.06);
-  border-top: none;
-  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 0 0 4px 4px;
   display: flex;
-  gap: 80px;
+  gap: 70px;
   padding: 0 24px 0 61px;
 }
 
@@ -170,7 +170,7 @@ $color-muted: #545F7D;
   border: none;
   background: transparent;
   cursor: pointer;
-  font-family: "SF Compact Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: $font-users;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -185,7 +185,6 @@ $color-muted: #545F7D;
 .tabActive {
   position: relative;
   color: #39CDCC;
-  border-bottom: 2px solid transparent;
 }
 
 .tabActive::after {
@@ -204,7 +203,7 @@ $color-muted: #545F7D;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
-  padding: 28px;
+  padding: 30px 89px 30px 30px;
   margin-top: 18px;
 }
 
@@ -227,19 +226,25 @@ $color-muted: #545F7D;
 /* Section / Grid / Field – match Users page table typography */
 .sectionTitle {
   font-family: $font-users;
-  /* Personal Information / Education and Employment */
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   color: $color-primary;
-  margin-bottom: 14px;
+  margin-bottom: 30px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 22px;
-  margin-bottom: 18px;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.gridFour {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 30px;
 }
 
 .fieldLabel {
@@ -255,7 +260,6 @@ $color-muted: #545F7D;
 
 .fieldValue {
   font-family: $font-users;
-  /* Grace Effiom, 07060780922, etc. */
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -404,13 +408,13 @@ $color-muted: #545F7D;
   flex-wrap: wrap;
   gap: 80px;
   border-bottom: 1px solid $color-border;
-  padding: 0 24px 0 61px;
+  padding: 0 0 0 61px;
   overflow-x: auto;
 }
 
 .tab {
   padding: 8px 0 10px;
-  font-family: "SF Compact Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: $font-users;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;

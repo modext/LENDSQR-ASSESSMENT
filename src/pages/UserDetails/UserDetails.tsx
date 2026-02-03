@@ -77,47 +77,49 @@ export function UserDetails() {
         </div>
       </div>
 
-      <div className={styles.summary}>
-        <div className={styles.profile}>
-          <img src={userAvatarImg} alt="" className={styles.avatar} width={100} height={100} />
+      <div className={styles.summaryCard}>
+        <div className={styles.summary}>
+          <div className={styles.profile}>
+            <img src={userAvatarImg} alt="" className={styles.avatar} width={100} height={100} />
+            <div>
+              <div className={styles.name}>{user.fullName ?? user.username}</div>
+              <div className={styles.code}>LSQF{String(user.id).padStart(6, "0")}</div>
+            </div>
+          </div>
+
+          <div className={styles.divider} />
+
           <div>
-            <div className={styles.name}>{user.fullName ?? user.username}</div>
-            <div className={styles.code}>LSQF{String(user.id).padStart(6, "0")}</div>
+            <div className={styles.label}>User's Tier</div>
+            <div className={styles.stars} role="img" aria-label="3 out of 5 stars">
+              <img src={starFullIcon} alt="" width={20} height={20} aria-hidden />
+              <img src={starFullIcon} alt="" width={20} height={20} aria-hidden />
+              <img src={starFullIcon} alt="" width={20} height={20} aria-hidden />
+              <img src={starEmptyIcon} alt="" width={20} height={20} aria-hidden />
+              <img src={starEmptyIcon} alt="" width={20} height={20} aria-hidden />
+            </div>
+          </div>
+
+          <div className={styles.divider} />
+
+          <div>
+            <div className={styles.balance}>{formatNGN(balance)}</div>
+            <div className={styles.bank}>{acct}/{bankName}</div>
           </div>
         </div>
 
-        <div className={styles.divider} />
-
-        <div>
-          <div className={styles.label}>User's Tier</div>
-          <div className={styles.stars} role="img" aria-label="3 out of 5 stars">
-            <img src={starFullIcon} alt="" width={20} height={20} aria-hidden />
-            <img src={starFullIcon} alt="" width={20} height={20} aria-hidden />
-            <img src={starFullIcon} alt="" width={20} height={20} aria-hidden />
-            <img src={starEmptyIcon} alt="" width={20} height={20} aria-hidden />
-            <img src={starEmptyIcon} alt="" width={20} height={20} aria-hidden />
-          </div>
+        <div className={styles.tabs}>
+          {TAB_LIST.map(({ id, label }) => (
+            <button
+              key={id}
+              type="button"
+              className={activeTab === id ? styles.tabActive : styles.tab}
+              onClick={() => setActiveTab(id)}
+            >
+              {label}
+            </button>
+          ))}
         </div>
-
-        <div className={styles.divider} />
-
-        <div>
-          <div className={styles.balance}>{formatNGN(balance)}</div>
-          <div className={styles.bank}>{acct}/{bankName}</div>
-        </div>
-      </div>
-
-      <div className={styles.tabs}>
-        {TAB_LIST.map(({ id, label }) => (
-          <button
-            key={id}
-            type="button"
-            className={activeTab === id ? styles.tabActive : styles.tab}
-            onClick={() => setActiveTab(id)}
-          >
-            {label}
-          </button>
-        ))}
       </div>
 
       <div className={styles.panel}>
@@ -142,14 +144,14 @@ export function UserDetails() {
         <Divider />
 
         <Section title="Education and Employment">
-          <Grid>
+          <Grid columns={4}>
             <Field k="LEVEL OF EDUCATION" v={user.education?.level ?? "B.Sc"} />
             <Field k="EMPLOYMENT STATUS" v={user.education?.employmentStatus ?? "Employed"} />
             <Field k="SECTOR OF EMPLOYMENT" v={user.education?.sector ?? "FinTech"} />
             <Field k="DURATION OF EMPLOYMENT" v={user.education?.duration ?? "2 years"} />
           </Grid>
 
-          <Grid>
+          <Grid columns={4}>
             <Field k="OFFICE EMAIL" v={user.education?.officeEmail ?? "grace@lendsqr.com"} />
             <Field k="MONTHLY INCOME" v={user.education?.monthlyIncomeRange ?? "₦200,000.00 - ₦400,000.00"} />
             <Field k="LOAN REPAYMENT" v={user.education?.loanRepayment ?? "40,000"} />
@@ -227,8 +229,12 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function Grid({ children }: { children: React.ReactNode }) {
-  return <div className={styles.grid}>{children}</div>;
+function Grid({ children, columns = 5 }: { children: React.ReactNode; columns?: 4 | 5 }) {
+  return (
+    <div className={columns === 4 ? styles.gridFour : styles.grid}>
+      {children}
+    </div>
+  );
 }
 
 function Field({ k, v }: { k: string; v: string }) {

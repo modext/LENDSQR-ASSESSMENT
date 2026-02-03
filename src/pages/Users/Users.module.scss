@@ -22,6 +22,14 @@
   gap: 26px;
 }
 
+/* At 1024px and below use 2x2 so stat cards aren't cramped in one row */
+@media (max-width: $breakpoint-xl) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
 .tableArea {
   position: relative;
   margin-top: 40px;
