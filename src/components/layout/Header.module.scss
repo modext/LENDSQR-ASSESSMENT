@@ -72,6 +72,10 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+
+  @media (max-width: $breakpoint-md) {
+    margin-right: auto;
+  }
 }
 
 .logoLink {
@@ -109,7 +113,7 @@
   @media (min-width: $breakpoint-lg) {
     margin-left: 144.2px;
   }
-  @media (max-width: $breakpoint-lg) and (min-width: $breakpoint-md + 1) {
+  @media (max-width: $breakpoint-lg) and (min-width: #{$breakpoint-md + 1px}) {
     max-width: 360px;
     margin-left: 0;
   }
@@ -118,9 +122,9 @@
     height: 36px;
     margin-left: 0;
   }
-  @media (max-width: $breakpoint-sm) {
-    max-width: 140px;
-    height: 32px;
+  /* Hide search only on mobile; keep visible on tablet */
+  @media (max-width: 480px) {
+    display: none;
   }
 }
 

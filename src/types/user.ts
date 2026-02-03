@@ -39,7 +39,7 @@ export type User = {
   username: string;
   email: string;
   phone: string;
-  dateJoined: string;
+  dateJoined: string; // ISO string
   status: UserStatus;
 
   fullName?: string;

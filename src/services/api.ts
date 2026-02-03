@@ -9,6 +9,7 @@ async function fetchFromMock<T>(path: string): Promise<T> {
     if (!res.ok) throw new Error(`API error: ${res.status}`);
     return res.json() as Promise<T>;
   }
+  // Local mock
   if (path === '/users' || path.startsWith('/users?')) {
     const list = getMockUserList();
     return { users: list, total: list.length } as T;

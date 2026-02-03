@@ -24,6 +24,7 @@ import iconBadgePercent from "../../assets/badge-percent 1.svg";
 import iconSystemMessages from "../../assets/system messages.svg";
 import iconLogout from "../../assets/logout.svg";
 import iconArrowDown from "../../assets/arrow down.svg";
+import iconSearch from "../../assets/search icon.svg";
 
 type NavItem = { label: string; to: string; icon: string };
 
@@ -81,6 +82,19 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
       )}
       <aside className={`${styles.sidebar} ${open ? styles.sidebarOpen : ""}`}>
         <div className={styles.inner}>
+          <div className={styles.sidebarSearch}>
+            <div className={styles.sidebarSearchBar}>
+              <input
+                type="search"
+                className={styles.sidebarSearchInput}
+                placeholder="Search for anything"
+                aria-label="Search"
+              />
+              <button type="button" className={styles.sidebarSearchBtn} aria-label="Search">
+                <img src={iconSearch} alt="" width={14} height={14} aria-hidden />
+              </button>
+            </div>
+          </div>
           <div className={styles.switchOrg}>
             <div className={styles.switchLeft}>
               <img src={iconBriefcase} alt="" className={styles.switchIcon} width={16} height={16} />
